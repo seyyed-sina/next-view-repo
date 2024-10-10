@@ -5,6 +5,7 @@ import { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 
 import { MainLayout } from '@components';
+import { routes } from '@constants';
 
 type ProvidersProps = {
   session: Session | null;
@@ -13,8 +14,8 @@ type ProvidersProps = {
 
 export const Providers = ({ session, children }: ProvidersProps) => {
   return (
-    <SessionProvider session={session}>
-      <MainLayout>{children}</MainLayout>
+    <SessionProvider session={session} basePath={routes.SIGN_IN}>
+      {children}
     </SessionProvider>
   );
 };
