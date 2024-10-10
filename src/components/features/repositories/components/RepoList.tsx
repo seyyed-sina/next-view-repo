@@ -7,9 +7,6 @@ interface Props {
 }
 
 export const RepoList = ({ repos }: Props) => {
-  // const { data: session, status } = useSession();
-  // console.log('Session:', session, 'Status:', status);
-
   return (
     <div className="container flex flex-col gap-5">
       {repos && (

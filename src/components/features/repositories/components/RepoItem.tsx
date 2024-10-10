@@ -18,7 +18,7 @@ export const RepoItem = memo(({ repo }: RepoItemProps) => {
       backgroundColor: githubLangColor[repo.language],
     };
   }, [repo.language]);
-  console.log('repo: ', repo);
+
   return (
     <li className="flex items-center justify-between gap-3 w-full py-7 border-b border-solid border-gray-700 last:border-0">
       <div className="flex flex-col gap-3">

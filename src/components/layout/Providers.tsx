@@ -1,10 +1,8 @@
-'use client';
 import { PropsWithChildren } from 'react';
 
 import { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 
-import { MainLayout } from '@components';
 import { routes } from '@constants';
 
 type ProvidersProps = {

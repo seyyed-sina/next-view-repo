@@ -11,9 +11,9 @@ export const SignInButton = () => {
         'use server';
         await signIn('github', { redirectTo: '/' });
       }}>
-      <Button className="Sign in with GitHub w-auto bg-slate-700">
+      <Button type="submit" className="gap-2 mx-auto bg-slate-700">
         <IconBrandGithub size={20} />
-        Sign In
+        Sign in with GitHub
       </Button>
     </form>
   );

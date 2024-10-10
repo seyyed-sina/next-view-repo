@@ -7,7 +7,7 @@ export const fetchRepoList = async () => {
   const session = await auth();
   const apiUrl = api.BASE_URL + api.USER_REPO;
 
-  if (!session?.user) return null;
+  if (!session?.accessToken) return null;
 
   return (await fetch(apiUrl, {
     headers: {

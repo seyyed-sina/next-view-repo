@@ -8,9 +8,10 @@ export const SignOutButton = () => {
       action={async () => {
         'use server';
         await signOut();
-      }}
-      className="w-full">
-      <Button variant="primary">Sign Out</Button>
+      }}>
+      <Button type="submit" variant="primary">
+        Sign Out
+      </Button>
     </form>
   );
 };

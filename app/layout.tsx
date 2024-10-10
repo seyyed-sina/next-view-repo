@@ -1,22 +1,17 @@
-import { auth } from '@/lib/auth';
-import { MainLayout, Providers } from '@components';
+import { MainLayout } from '@components';
 import { inter } from '@constants';
 
 import './globals.css';
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
-
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <MainLayout>
-          <Providers session={session}>{children}</Providers>
-        </MainLayout>
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 import NextAuth, { NextAuthConfig } from 'next-auth';
 import GitHub from 'next-auth/providers/github';
 
-import { routes } from '@/constants/routes';
+import { routes } from '@constants';
 
 const authOptions = {
   providers: [
@@ -15,10 +15,8 @@ const authOptions = {
     signIn: routes.SIGN_IN,
   },
   callbacks: {
-    authorized: ({ auth }) => {
-      // Logged in users are authenticated, otherwise redirect to login page
-      return !!auth;
-    },
+    authorized: ({ auth, request }) =>
+      request.nextUrl.pathname === '/' ? !!auth?.accessToken : true,
     jwt({ token, trigger, session, account }) {
       if (trigger === 'update') token.name = session.user.name;
       if (account) {
@@ -33,7 +31,7 @@ const authOptions = {
       return session;
     },
   },
-  debug: process.env.NODE_ENV !== 'production' ? true : false,
+  debug: process.env.NODE_ENV !== 'production',
 } satisfies NextAuthConfig;
 
-export const { handlers, auth, signIn, signOut } = NextAuth(authOptions);
+export const { handlers, signIn, signOut, auth } = NextAuth(authOptions);
