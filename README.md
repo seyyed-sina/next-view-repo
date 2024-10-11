@@ -1,4 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GitHub OAuth App with Next.js
+
+A GitHub OAuth integration built using **Next.js**, **NextAuth.js**, and **Tailwind CSS**. This app allows users to authenticate with their GitHub accounts and view a list of their repositories. Each repository entry includes:
+- Repository name
+- Last updated date
+- Repository owner
+- Download option as a zip file
+
+## Features
+- GitHub OAuth login with NextAuth.js
+- List of repositories with details and download option
+- Middleware for protecting routes
+- Seamless redirection based on authentication state
+- Styled with Tailwind CSS for a responsive design
+
+## Technologies Used
+- Next.js
+- NextAuth (Auth.js v5)
+- GitHub OAuth Provider
+- Tailwind CSS
+- TypeScript
 
 ## Getting Started
 
