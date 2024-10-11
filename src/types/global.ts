@@ -7,13 +7,6 @@ declare module 'next-auth' {
   }
 }
 
-declare module 'next-auth/jwt' {
-  interface JWT {
-    accessToken?: string;
-  }
-}
-
-
 type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
 
 export type XOR<T, U> = T | U extends object
