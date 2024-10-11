@@ -11,12 +11,18 @@ const authOptions = {
     }),
   ],
   session: { strategy: 'jwt' },
+  secret: process.env.AUTH_SECRET,
   pages: {
     signIn: routes.SIGN_IN,
   },
   callbacks: {
-    authorized: ({ auth, request }) =>
-      request.nextUrl.pathname === '/' ? !!auth?.accessToken : true,
+    authorized: ({ auth, request }) => {
+      const {
+        nextUrl: { pathname },
+      } = request;
+
+      return (!auth && pathname.startsWith(routes.SIGN_IN)) || !!auth;
+    },
     jwt({ token, trigger, session, account }) {
       if (trigger === 'update') token.name = session.user.name;
       if (account) {

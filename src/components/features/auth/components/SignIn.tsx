@@ -1,6 +1,4 @@
-// import { SignInButton } from '@components';
-
-import { SignInButton } from "@/components/button/SignInButton";
+import { SignInButton } from '@/components/button/SignInButton';
 
 export const SignIn = () => {
   return (
