@@ -1,6 +1,7 @@
 import { memo, useMemo } from 'react';
 
-import { IconDownload } from '@tabler/icons-react';
+import { IconDownload, IconStar } from '@tabler/icons-react';
+import Image from 'next/image';
 
 import { githubLangColor } from '../repo.data';
 import { Repo } from '../repo.types';
@@ -39,7 +40,7 @@ export const RepoItem = memo(({ repo }: RepoItemProps) => {
             {repo.description}
           </p>
         )}
-        <div className="flex items-center gap-4 text-xs text-gray-500">
+        <div className="flex items-center gap-5 text-xs text-gray-500">
           {repo.language && (
             <div className="flex items-center gap-1">
               <span
@@ -49,12 +50,27 @@ export const RepoItem = memo(({ repo }: RepoItemProps) => {
               <span className="grow">{repo.language}</span>
             </div>
           )}
-          <time dateTime={repo.updated_at}>
-            Updated {new Date(repo.updated_at).toLocaleDateString()}
-          </time>
+          {repo.stargazers_count > 0 && (
+            <span className="flex items-center gap-1">
+              <IconStar size={16} className="shrink-0" />
+              {repo.stargazers_count}
+            </span>
+          )}
+          <div className="flex items-center gap-2">
+            <span className="size-4 shrink-0 rounded-full">
+              <Image
+                src={repo.owner.avatar_url ?? ''}
+                alt={repo.owner.login ?? ''}
+                width={16}
+                height={16}
+                className="rounded-full object-cover bg-gray-500"
+              />
+            </span>
+            By: {repo.owner.login ?? ''}
+          </div>
         </div>
       </div>
-      <div className="flex shrink-0">
+      <div className="flex items-center sm:flex-col gap-3 sm:items-end shrink-0">
         <a
           href={zipFile}
           className="text-gray-300 text-sm p-2 border border-solid rounded-md border-gray-700 bg-gray-800 
@@ -64,6 +80,21 @@ export const RepoItem = memo(({ repo }: RepoItemProps) => {
           <IconDownload size={20} className="shrink-0" />
           Download Zip
         </a>
+        <time
+          className=" text-xs text-gray-500"
+          dateTime={repo.updated_at}
+          title={new Date(repo.updated_at).toLocaleDateString('en-US')}>
+          Last Update: {' '}
+          {new Date(repo.updated_at).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year:
+              new Date(repo.updated_at).getFullYear() !==
+              new Date().getFullYear()
+                ? 'numeric'
+                : undefined,
+          })}
+        </time>
       </div>
     </li>
   );
