@@ -1,6 +1,6 @@
 import { auth } from '@/lib/auth';
 
-import { SignOutButton } from '../button/SignOutButton';
+import { SignOutButton } from '../features/auth/components/SignOutButton';
 // import { SignOutButton } from '@components';
 
 export const MainHeader = async () => {
