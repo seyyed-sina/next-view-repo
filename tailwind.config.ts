@@ -24,7 +24,6 @@ const config: Config = {
       colors: {
         primary: {
           DEFAULT: '#3a4bab',
-          
         },
       },
     },

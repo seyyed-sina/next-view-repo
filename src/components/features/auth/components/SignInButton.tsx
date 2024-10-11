@@ -1,6 +1,7 @@
 import { IconBrandGithub } from '@tabler/icons-react';
 
-import { SubmitButton } from '../../../button/SubmitButton';
+import { SubmitButton } from '@components';
+
 import { singInAction } from '../auth.actions';
 
 export const SignInButton = () => {

@@ -1,4 +1,4 @@
-import { SignInButton } from '@/components/features/auth/components/SignInButton';
+import { SignInButton } from "@components";
 
 export const SignIn = () => {
   return (

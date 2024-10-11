@@ -20,17 +20,17 @@ export const RepoItem = memo(({ repo }: RepoItemProps) => {
   }, [repo.language]);
 
   return (
-    <li className="flex items-center justify-between gap-3 w-full py-7 border-b border-solid border-gray-700 last:border-0">
+    <li className="flex sm:items-center flex-col sm:flex-row justify-between gap-3 w-full py-7 border-b border-solid border-gray-700 last:border-0">
       <div className="flex flex-col gap-3">
         <h3 className="break-all">
           <a
-            className="text-blue-600 text-xl font-medium"
+            className="text-blue-600 text-xl font-medium mr-3"
             target="_blank"
             rel="noreferrer"
             href={repoName}>
             {repo.name}
           </a>
-          <span className="border border-solid rounded-full text-xs inline-flex items-center justify-center text-center px-2 py-1 ml-3 bg-gray-800 text-gray-400 border-gray-700 capitalize">
+          <span className="border border-solid rounded-full text-xs inline-flex items-center justify-center text-center px-2 py-1 bg-gray-800 text-gray-400 border-gray-700 capitalize relative -top-0.5">
             {repo.visibility}
           </span>
         </h3>
@@ -54,14 +54,17 @@ export const RepoItem = memo(({ repo }: RepoItemProps) => {
           </time>
         </div>
       </div>
-      <a
-        href={zipFile}
-        className="text-gray-300 text-sm p-2 border border-solid rounded-md border-gray-700 bg-gray-800 flex items-center gap-2 shrink-0"
-        target="_blank"
-        rel="noreferrer">
-        <IconDownload size={20} className="shrink-0" />
-        Download Zip
-      </a>
+      <div className="flex shrink-0">
+        <a
+          href={zipFile}
+          className="text-gray-300 text-sm p-2 border border-solid rounded-md border-gray-700 bg-gray-800 
+        flex items-center gap-2"
+          target="_blank"
+          rel="noreferrer">
+          <IconDownload size={20} className="shrink-0" />
+          Download Zip
+        </a>
+      </div>
     </li>
   );
 });

@@ -8,16 +8,15 @@ export * from '../components/ui/MainHeader';
 // Loading
 export * from '../components/loading/LoadingSpinner';
 export * from '../components/loading/LoadingContent';
-export * from '../components/loading/FullPageLoading';
 
 // Button
 export * from '../components/button/Button';
 export * from '../components/button/SubmitButton';
-// export * from '../components/button/SignOutButton';
-// export * from '../components/button/SignInButton';
 
 // SignIn
 export * from '../components/features/auth/components/SignIn';
+export * from '../components/features/auth/components/SignInButton';
+export * from '../components/features/auth/components/SignOutButton';
 
 // Repo
 export * from '../components/features/repositories/components/RepoList';

@@ -23,9 +23,13 @@ export const SubmitButton: FC<Props> = memo(
       <Button
         type={props.type ?? 'submit'}
         disabled={props.disabled || isSubmitting}
-        className={clx('relative overflow-hidden', className)}
+        className={clx('overflow-hidden', className)}
         {...props}>
-        <span className={clx('flex items-center', isSubmitting && 'opacity-0')}>
+        <span
+          className={clx(
+            'flex items-center gap-2',
+            isSubmitting && 'opacity-0',
+          )}>
           {children}
         </span>
         {isSubmitting && (

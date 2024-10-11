@@ -11,7 +11,7 @@ type size = 'sm' | 'md' | 'lg';
 type Variant = 'primary' | 'empty';
 
 const variants: Record<Variant, string> = {
-  primary: 'px-5 text-gray-200 bg-primary',
+  primary: 'px-4 text-gray-200 bg-primary',
   empty: '!p-0',
 };
 

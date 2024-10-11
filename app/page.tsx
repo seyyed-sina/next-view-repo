@@ -10,7 +10,7 @@ export default async function Home() {
     <>
       <MainHeader />
       <Suspense fallback={<LoadingContent />}>
-        <RepoList repos={repoList} />
+        {repoList && <RepoList repos={repoList} />}
       </Suspense>
     </>
   );
